@@ -60,12 +60,12 @@ export enum RailgunProxyContract {
 
   // Test nets
   EthereumRopsten = '',
-  EthereumGoerli = '0xe8bEa99BB438C2f3D533604D33258d74d5eE4824',
+  EthereumGoerli = '0x52E5351105A51cA5CB85367796ded62e7BF39f78',
   PolygonMumbai = '0x3ee8306321d992483BDC9c69B8F622Ba3FFF05B6',
   ArbitrumGoerli = '0xA0603e598F9Ac2fc7475a3fA08D0794066615D9a',
   Hardhat = '0x610178dA211FEF7D417bC0e6FeD39F05609AD788',
 }
-
+  // EthereumGoerli = '0xe8bEa99BB438C2f3D533604D33258d74d5eE4824',
 export enum RelayAdaptContract {
   Ethereum = '0x4025ee6512DBbda97049Bcf5AA5D38C54aF6bE8a',
   BNBChain = '0x741936fb83DDf324636D3048b3E6bC800B8D9e12',

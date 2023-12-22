@@ -1,6 +1,6 @@
 {
   "name": "dop-sharedmodels",
-  "version": "5.3.6",
+  "version": "5.3.7",
   "license": "MIT",
   "main": "dist/index.js",
   "files": [

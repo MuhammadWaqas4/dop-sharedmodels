@@ -3,7 +3,7 @@ import { ContractTransaction } from 'ethers';
 import { MerkletreeScanStatus } from './merkletree-scan';
 import { FeesSerialized } from './network-config';
 
-export type RailgunAPICiphertext = {
+export type DopAPICiphertext = {
   iv: string;
   data: string[];
 };
@@ -56,11 +56,11 @@ export type Chain = {
   id: number;
 };
 
-export type RailgunBalancesEvent = {
+export type DopBalancesEvent = {
   chain: Chain;
-  erc20Amounts: RailgunERC20Amount[];
-  nftAmounts: RailgunNFTAmount[];
-  railgunWalletID: string;
+  erc20Amounts: DopERC20Amount[];
+  nftAmounts: DopNFTAmount[];
+  dopWalletID: string;
 };
 
 export type MerkletreeScanUpdateEvent = {
@@ -73,46 +73,46 @@ export type LoadProviderResponse = {
   feesSerialized: FeesSerialized;
 };
 
-export type RailgunWalletInfo = {
+export type DopWalletInfo = {
   id: string;
-  railgunAddress: string;
+  dopAddress: string;
 };
 
-export type RailgunWalletAddressData = {
+export type DopWalletAddressData = {
   masterPublicKey: bigint;
   viewingPublicKey: bigint;
 };
 
-export type RailgunTxidFromNullifiersResponse = {
+export type DopTxidFromNullifiersResponse = {
   txid?: string;
 };
 
-export type RailgunPopulateTransactionResponse = {
+export type DopPopulateTransactionResponse = {
   transaction: ContractTransaction;
   nullifiers?: string[];
 };
 
-export type RailgunTransactionGasEstimateResponse = {
+export type DopTransactionGasEstimateResponse = {
   gasEstimate: bigint;
   relayerFeeCommitment?: CommitmentSummary;
 };
 
-export type RailgunERC20Recipient = {
+export type DopERC20Recipient = {
   tokenAddress: string;
   recipientAddress: string;
 };
 
-export type RailgunERC20Amount = {
+export type DopERC20Amount = {
   tokenAddress: string;
   amount: bigint;
 };
 
-export type RailgunERC20AmountRecipient = RailgunERC20Amount & {
+export type DopERC20AmountRecipient = DopERC20Amount & {
   recipientAddress: string;
 };
 
 /**
- * Synced NFT types from TokenType (@railgun-community/engine).
+ * Synced NFT types from TokenType (dop-engineengine).
  */
 export enum NFTTokenType {
   ERC721 = 1,
@@ -130,14 +130,14 @@ export type NFTAmountRecipient = NFTAmount & {
   recipientAddress: string;
 };
 
-export type RailgunNFTAmount = {
+export type DopNFTAmount = {
   nftAddress: string;
   nftTokenType: NFTTokenType;
   tokenSubID: string;
   amount: bigint;
 };
 
-export type RailgunNFTAmountRecipient = RailgunNFTAmount & {
+export type DopNFTAmountRecipient = DopNFTAmount & {
   recipientAddress: string;
 };
 
@@ -161,18 +161,18 @@ type SendAdditionalData = {
   memoText: Optional<string>;
 };
 
-export type RailgunSendERC20Amount = RailgunERC20Amount & SendAdditionalData;
+export type DopSendERC20Amount = DopERC20Amount & SendAdditionalData;
 
-export type RailgunSendNFTAmount = RailgunNFTAmount & SendAdditionalData;
+export type DopSendNFTAmount = DopNFTAmount & SendAdditionalData;
 
 type UnshieldAdditonalData = {
   unshieldFee: Optional<string>;
 };
 
-export type RailgunUnshieldERC20Amount = RailgunSendERC20Amount &
+export type DopUnshieldERC20Amount = DopSendERC20Amount &
   UnshieldAdditonalData;
 
-export type RailgunUnshieldNFTAmount = RailgunSendNFTAmount &
+export type DopUnshieldNFTAmount = DopSendNFTAmount &
   UnshieldAdditonalData;
 
 type ReceiveAdditionalData = {
@@ -181,10 +181,10 @@ type ReceiveAdditionalData = {
   shieldFee: Optional<string>;
 };
 
-export type RailgunReceiveERC20Amount = RailgunERC20Amount &
+export type DopReceiveERC20Amount = DopERC20Amount &
   ReceiveAdditionalData;
 
-export type RailgunReceiveNFTAmount = RailgunNFTAmount & ReceiveAdditionalData;
+export type DopReceiveNFTAmount = DopNFTAmount & ReceiveAdditionalData;
 
 export enum TransactionHistoryItemCategory {
   ShieldERC20s = 'ShieldERC20s',
@@ -199,14 +199,14 @@ export type TransactionHistoryItem = {
   version: number;
   timestamp: Optional<number>;
   blockNumber: Optional<number>;
-  receiveERC20Amounts: RailgunReceiveERC20Amount[];
-  transferERC20Amounts: RailgunSendERC20Amount[];
-  changeERC20Amounts: RailgunERC20Amount[];
-  relayerFeeERC20Amount?: RailgunERC20Amount;
-  unshieldERC20Amounts: RailgunUnshieldERC20Amount[];
-  receiveNFTAmounts: RailgunReceiveNFTAmount[];
-  transferNFTAmounts: RailgunSendNFTAmount[];
-  unshieldNFTAmounts: RailgunUnshieldNFTAmount[];
+  receiveERC20Amounts: DopReceiveERC20Amount[];
+  transferERC20Amounts: DopSendERC20Amount[];
+  changeERC20Amounts: DopERC20Amount[];
+  relayerFeeERC20Amount?: DopERC20Amount;
+  unshieldERC20Amounts: DopUnshieldERC20Amount[];
+  receiveNFTAmounts: DopReceiveNFTAmount[];
+  transferNFTAmounts: DopSendNFTAmount[];
+  unshieldNFTAmounts: DopUnshieldNFTAmount[];
   category: TransactionHistoryItemCategory;
 };
 

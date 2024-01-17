@@ -7,7 +7,7 @@ import { Chain, ChainType, EVMGasType } from './response-types';
  */
 export enum NetworkName {
   // Mainnets
-  Railgun = 'Railgun',
+  Dop = 'Dop',
   Ethereum = 'Ethereum',
   BNBChain = 'BNB_Chain',
   Polygon = 'Polygon',
@@ -43,10 +43,10 @@ export type Network = {
   shortPublicName: string;
   coingeckoId: string;
   baseToken: BaseToken;
-  proxyContract: RailgunProxyContract;
+  proxyContract: DopProxyContract;
   relayAdaptContract: RelayAdaptContract;
   relayAdaptHistory: string[];
-  deploymentBlock: RailgunProxyDeploymentBlock;
+  deploymentBlock: DopProxyDeploymentBlock;
   isDevOnlyNetwork?: boolean;
   isTestnet?: boolean;
   defaultEVMGasType: EVMGasType;
@@ -54,7 +54,7 @@ export type Network = {
   deprecated?: boolean;
 };
 
-export enum RailgunProxyContract {
+export enum DopProxyContract {
   Ethereum = '0xfa7093cdd9ee6932b4eb2c9e1cde7ce00b1fa4b9',
   BNBChain = '0x590162bf4b50f6576a459b75309ee21d92178a10',
   PolygonPOS = '0x19b620929f97b7b990801496c3b361ca5def8c71',
@@ -86,7 +86,7 @@ export enum RelayAdaptContract {
 }
 // EthereumGoerli = '0x14a57CA7C5c1AD54fB6c642f428d973fcD696ED4',
 
-export enum RailgunProxyDeploymentBlock {
+export enum DopProxyDeploymentBlock {
   Ethereum = 14737691,
   BNBChain = 17633701,
   PolygonPOS = 28083766,
@@ -115,20 +115,20 @@ export enum BaseTokenWrappedAddress {
 }
 
 export const NETWORK_CONFIG: Record<NetworkName, Network> = {
-  [NetworkName.Railgun]: {
+  [NetworkName.Dop]: {
     chain: {
       type: ChainType.EVM,
       id: -1,
     },
-    name: NetworkName.Railgun,
-    publicName: 'RAILGUN',
+    name: NetworkName.Dop,
+    publicName: 'DOP',
     shortPublicName: '',
     coingeckoId: '',
     baseToken: {} as BaseToken,
-    proxyContract: RailgunProxyContract.Ethereum,
+    proxyContract: DopProxyContract.Ethereum,
     relayAdaptContract: RelayAdaptContract.Ethereum,
     relayAdaptHistory: [],
-    deploymentBlock: RailgunProxyDeploymentBlock.Ethereum,
+    deploymentBlock: DopProxyDeploymentBlock.Ethereum,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: false,
   },
@@ -147,14 +147,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.EthereumWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.Ethereum,
+    proxyContract: DopProxyContract.Ethereum,
     relayAdaptContract: RelayAdaptContract.Ethereum,
     relayAdaptHistory: [
       '0x22af4EDBeA3De885dDa8f0a0653E6209e44e5B84', // Initial deployment
       '0xc3f2C8F9d5F0705De706b1302B7a039e1e11aC88', // V3.0 Update - Nov 2022
       '0x4025ee6512DBbda97049Bcf5AA5D38C54aF6bE8a', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.Ethereum,
+    deploymentBlock: DopProxyDeploymentBlock.Ethereum,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: true,
   },
@@ -173,14 +173,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.BinanceWBNB,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.BNBChain,
+    proxyContract: DopProxyContract.BNBChain,
     relayAdaptContract: RelayAdaptContract.BNBChain,
     relayAdaptHistory: [
       '0x20d868C7F1Eb706C46641ADD2f849c5DBf4dB158', // Initial deployment
       '0x25f795A8eC8aF7904aa403fF2Cc7205ce683BF52', // V3.0 Update - Nov 2022
       '0x741936fb83DDf324636D3048b3E6bC800B8D9e12', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.BNBChain,
+    deploymentBlock: DopProxyDeploymentBlock.BNBChain,
     defaultEVMGasType: EVMGasType.Type0,
     shouldQuickSync: true,
   },
@@ -199,14 +199,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.PolygonWMATIC,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.PolygonPOS,
+    proxyContract: DopProxyContract.PolygonPOS,
     relayAdaptContract: RelayAdaptContract.PolygonPOS,
     relayAdaptHistory: [
       '0x30D8AD0339e2CF160620589f2DBa1765126A5fDC', // Initial deployment
       '0x969eE9AC1E0B5F5Dd781f63A168C52b73062ff86', // V3.0 Update - Nov 2022
       '0xc7FfA542736321A3dd69246d73987566a5486968', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.PolygonPOS,
+    deploymentBlock: DopProxyDeploymentBlock.PolygonPOS,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: true,
   },
@@ -225,12 +225,12 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.ArbitrumWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.Arbitrum,
+    proxyContract: DopProxyContract.Arbitrum,
     relayAdaptContract: RelayAdaptContract.Arbitrum,
     relayAdaptHistory: [
       '0x5aD95C537b002770a39dea342c4bb2b68B1497aA', // Initial deployment - Feb 2023 post v3.1
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.Arbitrum,
+    deploymentBlock: DopProxyDeploymentBlock.Arbitrum,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: true,
   },
@@ -252,10 +252,10 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.EthereumRopstenWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.EthereumRopsten,
+    proxyContract: DopProxyContract.EthereumRopsten,
     relayAdaptContract: RelayAdaptContract.EthereumRopsten,
     relayAdaptHistory: [''],
-    deploymentBlock: RailgunProxyDeploymentBlock.EthereumRopsten,
+    deploymentBlock: DopProxyDeploymentBlock.EthereumRopsten,
     isTestnet: true,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: false,
@@ -275,7 +275,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.EthereumGoerliWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.EthereumGoerli,
+    proxyContract: DopProxyContract.EthereumGoerli,
     relayAdaptContract: RelayAdaptContract.EthereumGoerli,
     relayAdaptHistory: [
       '0xD147B7Dfa636a1c50A52bF6A6FE910680274eE24', // Initial deployment
@@ -283,7 +283,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       '0x6E9C59F042acB1577A297eDE607c21Ff284846F3', // V3.1 partial update - Jan 2023
       '0x14a57CA7C5c1AD54fB6c642f428d973fcD696ED4', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.EthereumGoerli,
+    deploymentBlock: DopProxyDeploymentBlock.EthereumGoerli,
     isTestnet: true,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: true,
@@ -303,14 +303,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.PolygonMumbaiWMATIC,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.PolygonMumbai,
+    proxyContract: DopProxyContract.PolygonMumbai,
     relayAdaptContract: RelayAdaptContract.PolygonMumbai,
     relayAdaptHistory: [
       '0x8B936B018CeA1c1cc14961CAdabD36E7fe9192cD', // Initial deployment
       '0x80efF1a8939C9B6E8C61Ed5Be683Eda21088B7E6', // V3.0 Update - Nov 2022
       '0x17D36875D723Cf0dA250d404Ef4cA0aABE105837', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.PolygonMumbai,
+    deploymentBlock: DopProxyDeploymentBlock.PolygonMumbai,
     isDevOnlyNetwork: true,
     isTestnet: true,
     defaultEVMGasType: EVMGasType.Type2,
@@ -331,13 +331,13 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.ArbitrumGoerliWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.ArbitrumGoerli,
+    proxyContract: DopProxyContract.ArbitrumGoerli,
     relayAdaptContract: RelayAdaptContract.ArbitrumGoerli,
     relayAdaptHistory: [
       '0x7E77d890179Aa683ac2B9A608bd8121255CAa917', // Initial deployment (post v3.0)
       '0x3eAf99B5EDc79D833AA8B6d18F0a8dd041e13eF6', // V3.1 Update - Jan 2023
     ],
-    deploymentBlock: RailgunProxyDeploymentBlock.ArbitrumGoerli,
+    deploymentBlock: DopProxyDeploymentBlock.ArbitrumGoerli,
     isTestnet: true,
     defaultEVMGasType: EVMGasType.Type2,
     shouldQuickSync: true,
@@ -357,10 +357,10 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
       wrappedAddress: BaseTokenWrappedAddress.HardhatWETH,
       decimals: 18,
     },
-    proxyContract: RailgunProxyContract.Hardhat,
+    proxyContract: DopProxyContract.Hardhat,
     relayAdaptContract: RelayAdaptContract.Hardhat,
     relayAdaptHistory: [''],
-    deploymentBlock: RailgunProxyDeploymentBlock.Hardhat,
+    deploymentBlock: DopProxyDeploymentBlock.Hardhat,
     isDevOnlyNetwork: true,
     isTestnet: true,
     defaultEVMGasType: EVMGasType.Type2,
@@ -376,7 +376,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //  */
 // export enum NetworkName {
 //   // Mainnets
-//   Railgun = 'Railgun',
+//   Dop = 'Dop',
 //   Ethereum = 'Ethereum',
 //   BNBChain = 'BNB_Chain',
 //   Polygon = 'Polygon',
@@ -412,10 +412,10 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //   shortPublicName: string;
 //   coingeckoId: string;
 //   baseToken: BaseToken;
-//   proxyContract: RailgunProxyContract;
+//   proxyContract: DopProxyContract;
 //   relayAdaptContract: RelayAdaptContract;
 //   relayAdaptHistory: string[];
-//   deploymentBlock: RailgunProxyDeploymentBlock;
+//   deploymentBlock: DopProxyDeploymentBlock;
 //   isDevOnlyNetwork?: boolean;
 //   isTestnet?: boolean;
 //   defaultEVMGasType: EVMGasType;
@@ -423,7 +423,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //   deprecated?: boolean;
 // };
 
-// export enum RailgunProxyContract {
+// export enum DopProxyContract {
 //   Ethereum = '0xfa7093cdd9ee6932b4eb2c9e1cde7ce00b1fa4b9',
 //   BNBChain = '0x590162bf4b50f6576a459b75309ee21d92178a10',
 //   PolygonPOS = '0x19b620929f97b7b990801496c3b361ca5def8c71',
@@ -451,7 +451,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //   Hardhat = '0x0355B7B8cb128fA5692729Ab3AAa199C1753f726',
 // }
 
-// export enum RailgunProxyDeploymentBlock {
+// export enum DopProxyDeploymentBlock {
 //   Ethereum = 14737691,
 //   BNBChain = 17633701,
 //   PolygonPOS = 28083766,
@@ -480,20 +480,20 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 // }
 
 // export const NETWORK_CONFIG: Record<NetworkName, Network> = {
-//   [NetworkName.Railgun]: {
+//   [NetworkName.Dop]: {
 //     chain: {
 //       type: ChainType.EVM,
 //       id: -1,
 //     },
-//     name: NetworkName.Railgun,
-//     publicName: 'RAILGUN',
+//     name: NetworkName.Dop,
+//     publicName: 'DOP',
 //     shortPublicName: '',
 //     coingeckoId: '',
 //     baseToken: {} as BaseToken,
-//     proxyContract: RailgunProxyContract.Ethereum,
+//     proxyContract: DopProxyContract.Ethereum,
 //     relayAdaptContract: RelayAdaptContract.Ethereum,
 //     relayAdaptHistory: [],
-//     deploymentBlock: RailgunProxyDeploymentBlock.Ethereum,
+//     deploymentBlock: DopProxyDeploymentBlock.Ethereum,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: false,
 //   },
@@ -512,14 +512,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.EthereumWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.Ethereum,
+//     proxyContract: DopProxyContract.Ethereum,
 //     relayAdaptContract: RelayAdaptContract.Ethereum,
 //     relayAdaptHistory: [
 //       '0x22af4EDBeA3De885dDa8f0a0653E6209e44e5B84', // Initial deployment
 //       '0xc3f2C8F9d5F0705De706b1302B7a039e1e11aC88', // V3.0 Update - Nov 2022
 //       '0x4025ee6512DBbda97049Bcf5AA5D38C54aF6bE8a', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.Ethereum,
+//     deploymentBlock: DopProxyDeploymentBlock.Ethereum,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: true,
 //   },
@@ -538,14 +538,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.BinanceWBNB,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.BNBChain,
+//     proxyContract: DopProxyContract.BNBChain,
 //     relayAdaptContract: RelayAdaptContract.BNBChain,
 //     relayAdaptHistory: [
 //       '0x20d868C7F1Eb706C46641ADD2f849c5DBf4dB158', // Initial deployment
 //       '0x25f795A8eC8aF7904aa403fF2Cc7205ce683BF52', // V3.0 Update - Nov 2022
 //       '0x741936fb83DDf324636D3048b3E6bC800B8D9e12', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.BNBChain,
+//     deploymentBlock: DopProxyDeploymentBlock.BNBChain,
 //     defaultEVMGasType: EVMGasType.Type0,
 //     shouldQuickSync: true,
 //   },
@@ -564,14 +564,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.PolygonWMATIC,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.PolygonPOS,
+//     proxyContract: DopProxyContract.PolygonPOS,
 //     relayAdaptContract: RelayAdaptContract.PolygonPOS,
 //     relayAdaptHistory: [
 //       '0x30D8AD0339e2CF160620589f2DBa1765126A5fDC', // Initial deployment
 //       '0x969eE9AC1E0B5F5Dd781f63A168C52b73062ff86', // V3.0 Update - Nov 2022
 //       '0xc7FfA542736321A3dd69246d73987566a5486968', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.PolygonPOS,
+//     deploymentBlock: DopProxyDeploymentBlock.PolygonPOS,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: true,
 //   },
@@ -590,12 +590,12 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.ArbitrumWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.Arbitrum,
+//     proxyContract: DopProxyContract.Arbitrum,
 //     relayAdaptContract: RelayAdaptContract.Arbitrum,
 //     relayAdaptHistory: [
 //       '0x5aD95C537b002770a39dea342c4bb2b68B1497aA', // Initial deployment - Feb 2023 post v3.1
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.Arbitrum,
+//     deploymentBlock: DopProxyDeploymentBlock.Arbitrum,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: true,
 //   },
@@ -617,10 +617,10 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.EthereumRopstenWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.EthereumRopsten,
+//     proxyContract: DopProxyContract.EthereumRopsten,
 //     relayAdaptContract: RelayAdaptContract.EthereumRopsten,
 //     relayAdaptHistory: [''],
-//     deploymentBlock: RailgunProxyDeploymentBlock.EthereumRopsten,
+//     deploymentBlock: DopProxyDeploymentBlock.EthereumRopsten,
 //     isTestnet: true,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: false,
@@ -640,7 +640,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.EthereumGoerliWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.EthereumGoerli,
+//     proxyContract: DopProxyContract.EthereumGoerli,
 //     relayAdaptContract: RelayAdaptContract.EthereumGoerli,
 //     relayAdaptHistory: [
 //       '0xD147B7Dfa636a1c50A52bF6A6FE910680274eE24', // Initial deployment
@@ -648,7 +648,7 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       '0x6E9C59F042acB1577A297eDE607c21Ff284846F3', // V3.1 partial update - Jan 2023
 //       '0x14a57CA7C5c1AD54fB6c642f428d973fcD696ED4', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.EthereumGoerli,
+//     deploymentBlock: DopProxyDeploymentBlock.EthereumGoerli,
 //     isTestnet: true,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: true,
@@ -668,14 +668,14 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.PolygonMumbaiWMATIC,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.PolygonMumbai,
+//     proxyContract: DopProxyContract.PolygonMumbai,
 //     relayAdaptContract: RelayAdaptContract.PolygonMumbai,
 //     relayAdaptHistory: [
 //       '0x8B936B018CeA1c1cc14961CAdabD36E7fe9192cD', // Initial deployment
 //       '0x80efF1a8939C9B6E8C61Ed5Be683Eda21088B7E6', // V3.0 Update - Nov 2022
 //       '0x17D36875D723Cf0dA250d404Ef4cA0aABE105837', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.PolygonMumbai,
+//     deploymentBlock: DopProxyDeploymentBlock.PolygonMumbai,
 //     isDevOnlyNetwork: true,
 //     isTestnet: true,
 //     defaultEVMGasType: EVMGasType.Type2,
@@ -696,13 +696,13 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.ArbitrumGoerliWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.ArbitrumGoerli,
+//     proxyContract: DopProxyContract.ArbitrumGoerli,
 //     relayAdaptContract: RelayAdaptContract.ArbitrumGoerli,
 //     relayAdaptHistory: [
 //       '0x7E77d890179Aa683ac2B9A608bd8121255CAa917', // Initial deployment (post v3.0)
 //       '0x3eAf99B5EDc79D833AA8B6d18F0a8dd041e13eF6', // V3.1 Update - Jan 2023
 //     ],
-//     deploymentBlock: RailgunProxyDeploymentBlock.ArbitrumGoerli,
+//     deploymentBlock: DopProxyDeploymentBlock.ArbitrumGoerli,
 //     isTestnet: true,
 //     defaultEVMGasType: EVMGasType.Type2,
 //     shouldQuickSync: true,
@@ -722,10 +722,10 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 //       wrappedAddress: BaseTokenWrappedAddress.HardhatWETH,
 //       decimals: 18,
 //     },
-//     proxyContract: RailgunProxyContract.Hardhat,
+//     proxyContract: DopProxyContract.Hardhat,
 //     relayAdaptContract: RelayAdaptContract.Hardhat,
 //     relayAdaptHistory: [''],
-//     deploymentBlock: RailgunProxyDeploymentBlock.Hardhat,
+//     deploymentBlock: DopProxyDeploymentBlock.Hardhat,
 //     isDevOnlyNetwork: true,
 //     isTestnet: true,
 //     defaultEVMGasType: EVMGasType.Type2,

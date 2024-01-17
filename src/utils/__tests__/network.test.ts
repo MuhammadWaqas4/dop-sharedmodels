@@ -28,7 +28,7 @@ describe('network', () => {
   it('Should find current relay adapt contract in history for all networks', () => {
     Object.values(NETWORK_CONFIG).forEach(network => {
       if (
-        network.name === NetworkName.Railgun ||
+        network.name === NetworkName.Dop ||
         network.name === NetworkName.EthereumRopsten_DEPRECATED ||
         network.name === NetworkName.Hardhat
       ) {

@@ -1,7 +1,7 @@
 import { Chain } from './response-types';
 
-export type RailgunBalanceRefreshTrigger = (
+export type DopBalanceRefreshTrigger = (
   chain: Chain,
-  railgunWalletID: string,
+  dopWalletID: string,
   fullRescan: boolean,
 ) => Promise<void>;

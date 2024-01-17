@@ -4,7 +4,7 @@ export type RelayerFeeMessageData = {
   fees: MapType<string>;
   feeExpiration: number;
   feesID: string;
-  railgunAddress: string;
+  dopAddress: string;
   identifier: Optional<string>;
   availableWallets: number;
   version: string;
@@ -65,7 +65,7 @@ export type CachedTokenFee = {
 };
 
 export type SelectedRelayer = {
-  railgunAddress: string;
+  dopAddress: string;
   tokenAddress: string;
   tokenFee: CachedTokenFee;
 };

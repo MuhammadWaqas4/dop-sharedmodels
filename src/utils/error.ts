@@ -62,49 +62,49 @@ export const sanitizeError = (err: Error): Error => {
       );
     }
 
-    // Custom RAILGUN contract error messages
-    if (lowercaseMsg.includes('railgunsmartwallet')) {
+    // Custom DOP contract error messages
+    if (lowercaseMsg.includes('dopsmartwallet')) {
       if (lowercaseMsg.includes('invalid nft note value')) {
-        return new Error('RailgunSmartWallet: Invalid NFT Note Value.');
+        return new Error('DopSmartWallet: Invalid NFT Note Value.');
       }
       if (lowercaseMsg.includes('unsupported token')) {
         return new Error(
-          'RailgunSmartWallet: Unsupported Token. This token cannot interact with the RAILGUN contract.',
+          'DopSmartWallet: Unsupported Token. This token cannot interact with the DOP contract.',
         );
       }
       if (lowercaseMsg.includes('invalid note value')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Note Value. Please submit transaction with a corrected amount.',
+          'DopSmartWallet: Invalid Note Value. Please submit transaction with a corrected amount.',
         );
       }
       if (lowercaseMsg.includes('invalid adapt contract as sender')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Adapt Contract as Sender. Please update your frontend to current Adapt module versions.',
+          'DopSmartWallet: Invalid Adapt Contract as Sender. Please update your frontend to current Adapt module versions.',
         );
       }
       if (lowercaseMsg.includes('invalid merkle root')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Merkle Root. Please sync your balances and try again.',
+          'DopSmartWallet: Invalid Merkle Root. Please sync your balances and try again.',
         );
       }
       if (lowercaseMsg.includes('note already spent')) {
         return new Error(
-          'RailgunSmartWallet: Note Already Spent. Please sync your balances and try again.',
+          'DopSmartWallet: Note Already Spent. Please sync your balances and try again.',
         );
       }
       if (lowercaseMsg.includes('invalid note ciphertext array length')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Note Ciphertext Array Length. Please sync balances and re-prove your transaction.',
+          'DopSmartWallet: Invalid Note Ciphertext Array Length. Please sync balances and re-prove your transaction.',
         );
       }
       if (lowercaseMsg.includes('invalid withdraw note')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Unshield Note. Please sync balances and re-prove your transaction.',
+          'DopSmartWallet: Invalid Unshield Note. Please sync balances and re-prove your transaction.',
         );
       }
       if (lowercaseMsg.includes('invalid snark proof')) {
         return new Error(
-          'RailgunSmartWallet: Invalid Snark Proof. Please re-prove your transaction.',
+          'DopSmartWallet: Invalid Snark Proof. Please re-prove your transaction.',
         );
       }
     }

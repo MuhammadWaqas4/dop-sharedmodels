@@ -24,8 +24,8 @@ export enum NetworkName {
 }
 
 export type FeesSerialized = {
-  shield: string;
-  unshield: string;
+  encrypt: string;
+  decrypt: string;
   nft: string;
 };
 
@@ -393,8 +393,8 @@ export const NETWORK_CONFIG: Record<NetworkName, Network> = {
 // }
 
 // export type FeesSerialized = {
-//   shield: string;
-//   unshield: string;
+//   encrypt: string;
+//   decrypt: string;
 //   nft: string;
 // };
 

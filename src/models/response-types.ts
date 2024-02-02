@@ -165,20 +165,20 @@ export type DopSendERC20Amount = DopERC20Amount & SendAdditionalData;
 
 export type DopSendNFTAmount = DopNFTAmount & SendAdditionalData;
 
-type UnshieldAdditonalData = {
-  unshieldFee: Optional<string>;
+type DecryptAdditonalData = {
+  decryptFee: Optional<string>;
 };
 
-export type DopUnshieldERC20Amount = DopSendERC20Amount &
-  UnshieldAdditonalData;
+export type DopDecryptERC20Amount = DopSendERC20Amount &
+  DecryptAdditonalData;
 
-export type DopUnshieldNFTAmount = DopSendNFTAmount &
-  UnshieldAdditonalData;
+export type DopDecryptNFTAmount = DopSendNFTAmount &
+  DecryptAdditonalData;
 
 type ReceiveAdditionalData = {
   senderAddress: Optional<string>;
   memoText: Optional<string>;
-  shieldFee: Optional<string>;
+  encryptFee: Optional<string>;
 };
 
 export type DopReceiveERC20Amount = DopERC20Amount &
@@ -187,8 +187,8 @@ export type DopReceiveERC20Amount = DopERC20Amount &
 export type DopReceiveNFTAmount = DopNFTAmount & ReceiveAdditionalData;
 
 export enum TransactionHistoryItemCategory {
-  ShieldERC20s = 'ShieldERC20s',
-  UnshieldERC20s = 'UnshieldERC20s',
+  EncryptERC20s = 'EncryptERC20s',
+  DecryptERC20s = 'DecryptERC20s',
   TransferSendERC20s = 'TransferSendERC20s',
   TransferReceiveERC20s = 'TransferReceiveERC20s',
   Unknown = 'Unknown',
@@ -203,10 +203,10 @@ export type TransactionHistoryItem = {
   transferERC20Amounts: DopSendERC20Amount[];
   changeERC20Amounts: DopERC20Amount[];
   relayerFeeERC20Amount?: DopERC20Amount;
-  unshieldERC20Amounts: DopUnshieldERC20Amount[];
+  decryptERC20Amounts: DopDecryptERC20Amount[];
   receiveNFTAmounts: DopReceiveNFTAmount[];
   transferNFTAmounts: DopSendNFTAmount[];
-  unshieldNFTAmounts: DopUnshieldNFTAmount[];
+  decryptNFTAmounts: DopDecryptNFTAmount[];
   category: TransactionHistoryItemCategory;
 };
 

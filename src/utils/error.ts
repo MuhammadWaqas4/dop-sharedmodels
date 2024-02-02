@@ -99,7 +99,7 @@ export const sanitizeError = (err: Error): Error => {
       }
       if (lowercaseMsg.includes('invalid withdraw note')) {
         return new Error(
-          'DopSmartWallet: Invalid Unshield Note. Please sync balances and re-prove your transaction.',
+          'DopSmartWallet: Invalid Decrypt Note. Please sync balances and re-prove your transaction.',
         );
       }
       if (lowercaseMsg.includes('invalid snark proof')) {
